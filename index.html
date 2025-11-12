@@ -1,53 +1,64 @@
 <!doctype html>
 <html lang="ru">
-
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>UniHealth — ИИ-здоровье: вода, витамины, тренировки и рецепты</title>
-  <meta name="description" content="UniHealth помогает легко поддерживать здоровые привычки: трекер воды, справочник витаминов, ИИ-тренировки и ИИ-рецепты — всё в одном приложении." />
-  <meta property="og:title" content="UniHealth — ИИ-здоровье" />
-  <meta property="og:description" content="Вода, витамины, тренировки и рецепты — персонально под тебя." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-image.jpg" />
-  <link rel="icon" href="assets/favicon.ico" />
-  <meta name="description" content="UniHealth — приложение для здорового образа жизни: трекер воды, ИИ-генерация рецептов и тренировок. Здоровье в одном месте!" />
+
+  <!-- SEO / соцсети -->
+  <meta name="description" content="UniHealth — персональный помощник по здоровому образу жизни: трекер воды, справочник витаминов, ИИ-тренировки и ИИ-рецепты — всё в одном приложении." />
   <meta name="keywords" content="UniHealth, зож, фитнес, вода, рецепты, тренировки, ИИ" />
   <meta property="og:title" content="UniHealth — ИИ для здорового образа жизни" />
   <meta property="og:description" content="Вода, витамины, рецепты и тренировки — всё в одном приложении UniHealth." />
   <meta property="og:image" content="https://unihealthapp.github.io/UniHealth/assets/og-image.jpg" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://unihealthapp.github.io/UniHealth/" />
-
   <meta name="robots" content="index, follow">
 
+  <!-- Верификация -->
   <meta name="yandex-verification" content="93df03e41cc59d08" />
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105275327', 'ym');
 
-    ym(105275327, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/105275327" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" />
+
+  <!-- Цвет адресной строки на мобильных -->
+  <meta name="theme-color" content="#0b1e6a" />
+
+  <!-- Яндекс.Метрика -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j=0; j<document.scripts.length; j++){ if(document.scripts[j].src===r){ return; } }
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105275327','ym');
+    ym(105275327, 'init', { ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/105275327" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Яндекс.Метрика -->
+
   <style>
     :root{
+      /* размеры интерфейса */
+      --header-h: 72px;
+
       /* глубокая синяя палитра */
-      --bg:#06123a;           /* фоновый тёмно-синий */
-      --bg2:#0b1e6a;          /* градиентный второй */
-      --card:#0c1a55;         /* карточки */
-      --ink:#eaf2ff;          /* основной текст */
-      --muted:#b8c7e8;        /* вторичный текст */
-      --accent:#4da3ff;       /* голубой акцент */
-      --line:#1f2f7a;         /* граница */
+      --bg:#06123a;
+      --bg2:#0b1e6a;
+      --card:#0c1a55;
+      --ink:#eaf2ff;
+      --muted:#b8c7e8;
+      --accent:#4da3ff;
+      --line:#1f2f7a;
     }
+
+    /* базовые */
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{animation:none !important; transition:none !important}
+    }
     body{
       margin:0;
       color:var(--ink);
@@ -56,56 +67,82 @@
         radial-gradient(1200px 800px at 120% -10%, #1a2c8f33, transparent 60%),
         radial-gradient(900px 600px at -10% 120%, #16328a33, transparent 60%),
         linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
     a{color:inherit}
+    img{max-width:100%;height:auto;display:block}
+
+    /* контейнер */
     .wrap{max-width:1120px;margin:0 auto;padding:20px}
+    @media (max-width:600px){ .wrap{padding:16px} }
+
+    /* хедер */
     header{
       position:sticky; top:0; z-index:20;
       background:linear-gradient(180deg,#081543e6 0%, #081543cc 100%);
       backdrop-filter:saturate(140%) blur(10px);
       border-bottom:1px solid var(--line);
     }
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0; min-height:var(--header-h)}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.2px}
     .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
     .links{display:flex;gap:18px;align-items:center}
     .links a{opacity:.9;text-decoration:none}
+
+    /* кнопки */
     .btn{
-      display:inline-flex;align-items:center;gap:10px;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
       border:1px solid var(--line); background:#0a1e5a; color:var(--ink);
-      padding:10px 14px; border-radius:12px; text-decoration:none;
+      padding:12px 16px; border-radius:14px; text-decoration:none;
       transition:transform .08s ease, background .15s ease, box-shadow .2s ease;
       box-shadow:0 6px 20px rgba(11,30,106,.18) inset;
+      -webkit-tap-highlight-color: transparent;
+      min-height:44px; /* удобная зона тапа */
     }
     .btn:hover{transform:translateY(-2px); background:#0d2673}
     .btn.primary{background:var(--accent); color:#041033; border-color:transparent; font-weight:700; box-shadow:0 8px 26px rgba(77,163,255,.35)}
     .btn.primary:hover{background:#3b93f2}
+    @media (max-width:600px){
+      .links{gap:10px}
+      .links .btn.primary{padding:12px 14px}
+    }
 
+    /* герой */
     .hero{
-      display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; padding:64px 0 40px;
+      display:grid; grid-template-columns:1.05fr .95fr; gap:28px; align-items:center; padding:56px 0 40px;
       position:relative;
     }
     .badge{display:inline-block;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px;padding:6px 10px;background:#0a1f62}
-    h1{font-size:clamp(28px,5.2vw,56px);line-height:1.08;margin:14px 0 8px}
-    .lead{color:var(--muted);font-size:clamp(16px,2.2vw,20px);max-width:640px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    h1{font-size:clamp(28px,6vw,56px);line-height:1.12;margin:14px 0 10px}
+    .lead{color:var(--muted);font-size:clamp(16px,4.2vw,20px);max-width:640px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    @media (max-width:768px){
+      .hero{grid-template-columns:1fr;gap:18px;padding:40px 0 28px}
+      .cta .btn{flex:1 1 100%}        /* кнопки на всю ширину */
+      .links a:not(.btn){display:none} /* скрыть второстепенные ссылки в шапке */
+    }
 
+    /* карточка изображения */
     .mock{
       position:relative;
       border:1px solid var(--line);
       background:linear-gradient(180deg,#0a1f62,#091749);
-      border-radius:24px; padding:12px;
-      box-shadow:
-        0 14px 50px rgba(12,28,96,.45),
-        inset 0 0 0 1px rgba(255,255,255,.03);
+      border-radius:22px; padding:10px;
+      box-shadow:0 14px 50px rgba(12,28,96,.45), inset 0 0 0 1px rgba(255,255,255,.03);
     }
-    .mock img{width:100%;height:auto;border-radius:16px;display:block}
+    .mock img{border-radius:16px}
 
-    .section{padding:56px 0}
-    h2{font-size:clamp(22px,3.4vw,32px);margin:0 0 12px}
+    /* секции */
+    .section{padding:48px 0}
+    h2{font-size:clamp(22px,4.4vw,32px);margin:0 0 12px}
     .muted{color:var(--muted)}
 
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    /* сетки */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    @media (max-width:1024px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:600px){ .grid{grid-template-columns:1fr} }
+
     .card{
       background:linear-gradient(180deg,#0c1a55,#0a1e62);
       border:1px solid var(--line); border-radius:16px; padding:16px;
@@ -113,7 +150,10 @@
     }
     .card h3{margin:.2em 0 .3em;font-size:18px}
 
-    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
+    @media (max-width:900px){ .steps{grid-template-columns:1fr 1fr} }
+    @media (max-width:600px){ .steps{grid-template-columns:1fr} }
+
     .step{
       border:1px dashed var(--line); border-radius:16px; padding:16px;
       background:rgba(13,36,114,.35)
@@ -128,19 +168,16 @@
 
     footer{border-top:1px solid var(--line);padding:20px 0;color:var(--muted);font-size:14px;background:#081543}
 
-    /* декоративный фон из твоего изображения в углах */
+    /* декоративные углы */
     .bg-corner{
-      position:absolute; inset:auto; pointer-events:none; opacity:.12; filter:saturate(120%) blur(2px);
-      z-index:0;
+      position:absolute; inset:auto; pointer-events:none; opacity:.12; filter:saturate(120%) blur(2px); z-index:0;
     }
     .bg-top{top:-40px; right:-40px; width:280px; transform:rotate(10deg)}
     .bg-bottom{bottom:-60px; left:-40px; width:320px; transform:rotate(-8deg)}
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr;gap:20px;padding:44px 0}
-      header{position:static}
-      .bg-top{display:none}
-      .bg-bottom{display:none}
-    }
+    @media (max-width:920px){ .bg-top,.bg-bottom{display:none} }
+
+    /* якоря не перекрываются хедером */
+    section{scroll-margin-top: calc(var(--header-h) + 16px)}
   </style>
 </head>
 <body>
@@ -157,9 +194,9 @@
 
   <main class="wrap">
     <section class="hero">
-      <!-- декоративные угловые элементы из твоей картинки -->
-      <img class="bg-corner bg-top" src="assets/uh-cover.jpg" alt="" aria-hidden="true">
-      <img class="bg-corner bg-bottom" src="assets/uh-cover.jpg" alt="" aria-hidden="true">
+      <!-- декоративные углы -->
+      <img class="bg-corner bg-top" src="assets/uh-cover.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      <img class="bg-corner bg-bottom" src="assets/uh-cover.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
 
       <div style="position:relative;z-index:1">
         <span class="badge">Новый здоровый день — с ИИ за 1 минуту</span>
@@ -171,9 +208,9 @@
         </div>
       </div>
 
-      <!-- карточка-мокап: показываем твоё изображение крупно -->
+      <!-- крупное изображение -->
       <div class="mock" style="position:relative;z-index:1">
-        <img src="assets/uh-cover.jpg" alt="UniHealth — визуальный мокап" />
+        <img src="assets/uh-cover.jpg" alt="UniHealth — визуальный мокап" fetchpriority="high" decoding="async">
       </div>
     </section>
 
@@ -213,5 +250,33 @@
       © 2025 UniHealth. Все права защищены · <a href="#">Политика конфиденциальности</a>
     </div>
   </footer>
+
+  <!-- Скрипт дополнительной плавности (учёт хедера для старых браузеров) -->
+  <script>
+    (function(){
+      const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
+      const links = document.querySelectorAll('a[href^="#"]');
+      function smoothTo(id){
+        const el = document.getElementById(id);
+        if(!el) return;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - (headerH + 16);
+        window.scrollTo({ top:y, behavior: (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') });
+      }
+      links.forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          const hash = a.getAttribute('href');
+          if(!hash || hash === '#') return;
+          if(hash.startsWith('#')){
+            const id = hash.slice(1);
+            if(document.getElementById(id)){
+              e.preventDefault();
+              smoothTo(id);
+              history.pushState(null, '', hash);
+            }
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
